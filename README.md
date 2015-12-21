@@ -3,7 +3,7 @@
 Mirror a json by a scheme.
 
 ```js
-var shape = require('shape');
+var shape = require('shape-json');
 var input = {
   pid: 1,
   lastName: 'Stehle',
