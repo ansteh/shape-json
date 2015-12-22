@@ -30,7 +30,7 @@ var inputs = [{
   firstName: 'firstname'
 }];
 
-console.log(scheme.apply(inputs));
+console.log(scheme.form(inputs));
 /*
   {
     1:{

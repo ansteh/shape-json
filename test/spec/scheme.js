@@ -29,6 +29,6 @@ describe("scheme module tests:", function() {
       }
     };
 
-    expect(scheme.apply(inputs)).toEqual(result);
+    expect(scheme.form(inputs)).toEqual(result);
   });
 });
