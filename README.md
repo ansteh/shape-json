@@ -1,5 +1,4 @@
 ## mirror a collection
-
 Mirror a json by a scheme.
 
 ```js
@@ -45,6 +44,7 @@ console.log(shape.mirror(inputs, scheme));
 */
 ```
 
+## indexing
 Index an Array by a key.
 
 ```js
@@ -70,8 +70,8 @@ console.log(shape.indexBy(inputs, 'id'));
   }
 */
 ```
-
-Chain previous operations.
+## chaining
+Chaining previous examples.
 
 ```js
 var inputs = [{

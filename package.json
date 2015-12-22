@@ -1,10 +1,11 @@
 {
   "name": "shape-json",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "module used to transform a given json object into another json object by a scheme",
   "main": "index.js",
   "scripts": {
-    "test": "node test/test"
+    "test": "node test/test",
+    "gulp": "gulp"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-jasmine": "^2.2.1",
     "jasmine": "^2.4.1"
   }
 }
