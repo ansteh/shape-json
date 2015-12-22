@@ -1,8 +1,56 @@
+## Installation
+
+Using npm:
+```js
+npm install shape-json
+```
+In Node.js/io.js:
+
+```js
+var shape = require('shape-json');
+```
+
+
+## Create a scheme.
+```js
+var scheme = shape.scheme()
+  .mirror({ id: 'pid', last_name: 'lastName' })
+  .indexBy('id');
+```
+
+## Apply a scheme.
+```js
+var inputs = [{
+  pid: 1,
+  lastName: 'Stehle',
+  firstName: 'Andre'
+},{
+  pid: 2,
+  lastName: 'lastname',
+  firstName: 'firstname'
+}];
+
+console.log(scheme.apply(inputs));
+/*
+  {
+    1:{
+      id: 1,
+      last_name: 'Stehle'
+    },
+    2:{
+      id: 2,
+      last_name: 'lastname'
+    }
+  }
+*/
+```
+
+## API Documentation
+
 ## mirror a collection
 Mirror a json by a scheme.
 
 ```js
-var shape = require('shape-json');
 var input = {
   pid: 1,
   lastName: 'Stehle',
@@ -101,5 +149,4 @@ console.log(result);
     }
   }
 */
-```
 ```
