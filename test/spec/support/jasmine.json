@@ -2,6 +2,8 @@
     "spec_dir": "test/spec",
     "spec_files": [
         "shipping.js",
-        "scheme.js"
+        "scheme.js",
+        "form.js",
+        "parse.js"
     ]
 }
