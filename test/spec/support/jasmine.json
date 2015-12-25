@@ -4,6 +4,7 @@
         "shipping.js",
         "scheme.js",
         "form.js",
-        "parse.js"
+        "parse.js",
+        "group.js"
     ]
 }
