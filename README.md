@@ -30,11 +30,7 @@ var scheme = {
     "first_name": "firstName",
     "$group[projects](projectID)": {
       "id": "projectID",
-      "name": "projectName",
-      "$group[urls](urlID)": {
-        "id" : "urlID",
-        "name": "url"
-      }
+      "name": "projectName"
     }
   }
 };
