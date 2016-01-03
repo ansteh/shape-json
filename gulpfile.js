@@ -3,7 +3,7 @@ var jasmine = require('gulp-jasmine');
 
 var paths = {
   scripts: ['lib/**/*.js'],
-  spec: 'test/spec/**/*.js'
+  spec: 'test/spec/*.js'
 };
 
 gulp.task('test', function () {
