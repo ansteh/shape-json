@@ -36,30 +36,33 @@ let groupedProjects = _.map(_.groupBy(input, 'pid'), function(group){
     "projects": _.uniq(_.map(group, function(project){
       return {
         "id": project.projectID,
-        "name": project.projectName,
-        "url": project.url
+        "name": project.projectName
       };
     }), 'id')
-  }
+  };
 });
 
-console.log(groupedProjects);
+//console.log(groupedProjects);
 
 describe("scheme form", function() {
   it("simple parse equals mirror", function() {
     let scheme = {
-      "id": "projectID",
-      "name": "projectName",
-      "url": "url"
+      '$mirror[persons]': {
+        "id": "projectID",
+        "name": "projectName",
+        "url": "url"
+      }
     };
 
-    let result = _.map(input, function(project){
-      return {
-        "id": project.projectID,
-        "name": project.projectName,
-        "url": project.url
-      };
-    });
+    let result = {
+      persons: _.map(input, function(project){
+        return {
+          "id": project.projectID,
+          "name": project.projectName,
+          "url": project.url
+        };
+      })
+    };
 
     expect(shape.parse(input, scheme)).toEqual(result);
   });
@@ -70,14 +73,15 @@ describe("scheme form", function() {
         "id": "pid",
         "last_name": "lastName",
         "first_name": "firstName",
-        "projects": {
+        "$mirror[projects](projectID)": {
           "id": "projectID",
-          "name": "projectName",
-          "url": "url"
+          "name": "projectName"
         }
       }
     };
-    console.log(shape.parse(input, scheme).persons);
+
+    //console.log(shape.parse(input, scheme).persons[0]);
+    //console.log(groupedProjects[0]);
     expect(shape.parse(input, scheme).persons).toEqual(groupedProjects);
   });
 
