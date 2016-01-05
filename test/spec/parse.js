@@ -67,6 +67,53 @@ describe("scheme form", function() {
     expect(shape.parse(input, scheme)).toEqual(result);
   });
 
+  it("parse a first row to a single nested object (just default key mapping)", function() {
+    let scheme = {
+      "person": {
+        "id": "pid",
+        "last_name": "lastName",
+        "first_name": "firstName"
+      }
+    };
+
+    let firstRow = _.first(input);
+    let result = {
+      "person": {
+        "id": firstRow.pid,
+        "last_name": firstRow.lastName,
+        "first_name": firstRow.firstName
+      }
+    };
+
+    expect(shape.parse(input, scheme)).toEqual(result);
+  });
+
+  it("nested parsing equals nested object with just key mapping", function() {
+    let scheme = {
+      "$mirror[persons](pid)": {
+        "person": {
+          "id": "pid",
+          "last_name": "lastName",
+          "first_name": "firstName",
+        }
+      }
+    };
+
+    let result = {
+      persons: _.map(_.uniq(input, 'pid'), function(person){
+        return {
+          person: {
+            "id": person.pid,
+            "last_name": person.lastName,
+            "first_name": person.firstName,
+          }
+        };
+      })
+    };
+
+    expect(shape.parse(input, scheme)).toEqual(result);
+  });
+
   it("parse projects with a single depth", function() {
     let scheme = {
       "$group[persons](pid)": {
