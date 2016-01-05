@@ -67,6 +67,22 @@ describe("scheme form", function() {
     expect(shape.parse(input, scheme)).toEqual(result);
   });
 
+  it("single object mirror", function() {
+    let scheme = {
+      "id": "pid",
+      "last_name": "lastName",
+      "first_name": "firstName"
+    };
+
+    let result = {
+      "id": input[0].pid,
+      "last_name": input[0].lastName,
+      "first_name": input[0].firstName
+    };
+
+    expect(shape.parse([input[0]], scheme)).toEqual(result);
+  });
+
   it("parse a first row to a single nested object (just default key mapping)", function() {
     let scheme = {
       "person": {
