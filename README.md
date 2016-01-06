@@ -15,6 +15,9 @@ Browser:
 
 ```html
 <script src="https://cdn.rawgit.com/ansteh/shape-json/master/dist/shape-json.min.js"></script>
+<script>
+  console.log(shape);
+</script>
 ```
 
 ## Parse input by a scheme defined as json.
