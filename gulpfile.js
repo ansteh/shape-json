@@ -23,7 +23,7 @@ gulp.task("webpack", function(callback) {
       entry: "./index.js",
       output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "shape-jsonj.min.js"
+        filename: "shape-json.min.js"
       },
       plugins: [
         new webpack.optimize.UglifyJsPlugin()
