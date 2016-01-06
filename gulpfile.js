@@ -20,8 +20,10 @@ gulp.task('watch', ['test'], function() {
 
 gulp.task("webpack", function(callback) {
     webpack({
-      entry: "./index.js",
+      entry: "./lib/dist.js",
       output: {
+        libraryTarget: "var",
+        library: "shape",
         path: path.resolve(__dirname, 'dist'),
         filename: "shape-json.min.js"
       },

@@ -2,3 +2,4 @@
 *.log
 *.map
 node_modules
+tmp.js
