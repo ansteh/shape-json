@@ -1,6 +1,7 @@
 ## Installation
 
 Using npm:
+
 ```js
 npm install shape-json
 ```
@@ -8,6 +9,12 @@ In Node.js/io.js:
 
 ```js
 var shape = require('shape-json');
+```
+
+Browser:
+
+```html
+<script src="https://cdn.rawgit.com/ansteh/shape-json/master/dist/shape-json.min.js"></script>
 ```
 
 ## Parse input by a scheme defined as json.
