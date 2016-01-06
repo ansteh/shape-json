@@ -31,6 +31,8 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-jasmine": "^2.2.1",
-    "jasmine": "^2.4.1"
+    "gulp-util": "^3.0.7",
+    "jasmine": "^2.4.1",
+    "webpack": "^1.12.9"
   }
 }
