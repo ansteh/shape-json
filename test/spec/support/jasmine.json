@@ -1,10 +1,6 @@
 {
-    "spec_dir": "test/spec",
-    "spec_files": [
-        "shipping.js",
-        "scheme.js",
-        "form.js",
-        "parse.js",
-        "group.js"
-    ]
+  "spec_dir": "test/spec",
+  "spec_files": [
+    "*.js"
+  ]
 }

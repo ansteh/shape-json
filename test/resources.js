@@ -8,5 +8,12 @@ module.exports = {
     {pid: 2, lastName: 'Dalton', firstName: 'John',  projectID: 6, projectName: 'project 6', url: 'project6_1.com', urlID: 6},
     {pid: 2, lastName: 'Dalton', firstName: 'John',  projectID: 7, projectName: 'project 7', url: 'project7_1.com', urlID: 7},
     {pid: 2, lastName: 'Dalton', firstName: 'John',  projectID: 7, projectName: 'project 7', url: 'project7_2.com', urlID: 8}
+  ],
+  readme: [
+    {pid: 1, contributor: 'jdalton', projectID: 1, projectName: 'lodash'},
+    {pid: 1, contributor: 'jdalton', projectID: 2, projectName: 'docdown'},
+    {pid: 1, contributor: 'jdalton', projectID: 3, projectName: 'lodash-cli'},
+    {pid: 2, contributor: 'contra',  projectID: 4, projectName: 'gulp'},
+    {pid: 3, contributor: 'phated',  projectID: 4, projectName: 'gulp'},
   ]
 };
