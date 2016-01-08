@@ -1,3 +1,5 @@
+The motivation behind this module is to reduce the amount of code for json object transformations. The concept implemented to achieve this, is: WYSIWYG.
+The idea is to define a json object that includes the transformation instructions, but at the same time reveals the same nesting structure as the output object.
 ## Installation
 
 Using npm:
@@ -12,19 +14,17 @@ var shape = require('shape-json');
 ```
 
 ## Parse input by a scheme defined as json.
+Consider you want to transform the below flat json object, into a nested json object we used to from MEAN stack.
 ```js
 var input = [
-  {pid: 1, lastName: 'Stehle', firstName: 'Andre', projectID: 1, projectName: 'project 1'},
-  {pid: 1, lastName: 'Stehle', firstName: 'Andre', projectID: 1, projectName: 'project 1'},
-  {pid: 1, lastName: 'Stehle', firstName: 'Andre', projectID: 3, projectName: 'project 3'},
-  {pid: 1, lastName: 'Stehle', firstName: 'Andre', projectID: 3, projectName: 'project 3'},
-  {pid: 1, lastName: 'Stehle', firstName: 'Andre', projectID: 4, projectName: 'project 4'},
-  {pid: 2, lastName: 'Dalton', firstName: 'John',  projectID: 6, projectName: 'project 6'},
-  {pid: 2, lastName: 'Dalton', firstName: 'John',  projectID: 7, projectName: 'project 7'},
-  {pid: 2, lastName: 'Dalton', firstName: 'John',  projectID: 7, projectName: 'project 7'}
-];
+  {pid: 1, contributor: 'jdalton', projectID: 1, projectName: 'lodash'},
+  {pid: 1, contributor: 'jdalton', projectID: 2, projectName: 'docdown'},
+  {pid: 1, contributor: 'jdalton', projectID: 3, projectName: 'lodash-cli'},
+  {pid: 2, contributor: 'contra',  projectID: 4, projectName: 'gulp'},
+  {pid: 3, contributor: 'phated',  projectID: 4, projectName: 'gulp'},
+]
 ```
-
+Instead of producing a lot of duplicated code to accomplish such transformations. We declare a scheme as a json object. This is 'what you see':
 ```js
 var scheme = {
   "$group[persons](pid)": {
@@ -37,38 +37,94 @@ var scheme = {
     }
   }
 };
-
 console.log(shape.parse(input, scheme));
-/*
-  {
-    persons: [{
-      id: 1,
-      last_name: 'Stehle',
-      first_name: 'Andre',
-      projects: [{
-        id: 1,
-        name: 'project 1'
-      },{
-        id: 3,
-        name: 'project 3'
-      },{
-        id: 4,
-        name: 'project 4'
-      }]
-    },{
-      id: 2,
-      last_name: 'Dalton',
-      first_name: 'John',
-      projects: [{
-        id: 6,
-        name: 'project 6'
-      },{
-        id: 7,
-        name: 'project 7'
-      }]
-    }]
+```
+The result 'is what you get':
+```json
+{
+  "contributors": [
+    {
+      "id": 1,
+      "name": "jdalton",
+      "projects": [
+        {
+          "id": 1,
+          "name": "lodash"
+        },
+        {
+          "id": 2,
+          "name": "docdown"
+        },
+        {
+          "id": 3,
+          "name": "lodash-cli"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "contra",
+      "projects": [
+        {
+          "id": 4,
+          "name": "gulp"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "phated",
+      "projects": [
+        {
+          "id": 4,
+          "name": "gulp"
+        }
+      ]
+    }
+  ]
+}
+```
+
+```js
+var scheme = {
+  "$mirror[projects](projectID)": {
+    "project": {
+      "id": "projectID",
+      "name": "projectName"
+    }
   }
-*/
+};
+console.log(shape.parse(input, scheme));
+```
+```json
+{
+  "projects": [
+    {
+      "project": {
+        "id": 1,
+        "name": "lodash"
+      }
+    },
+    {
+      "project": {
+        "id": 2,
+        "name": "docdown"
+      }
+    },
+    {
+      "project": {
+        "id": 3,
+        "name": "lodash-cli"
+      }
+    },
+    {
+      "project": {
+        "id": 4,
+        "name": "gulp"
+      }
+    }
+  ]
+}
 ```
 
 ## Create a scheme as object.
