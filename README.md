@@ -1,4 +1,5 @@
 The motivation behind this module is to reduce the amount of code for json object transformations. The concept implemented to achieve this, is: WYSIWYG.
+
 The idea is to define a json object that includes the transformation instructions, but at the same time reveals the same nesting structure as the output object.
 ## Installation
 
