@@ -85,7 +85,7 @@ The result 'is what you get':
   ]
 }
 ```
-
+Another example:
 ```js
 var scheme = {
   "$mirror[projects](projectID)": {
