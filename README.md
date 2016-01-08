@@ -11,15 +11,6 @@ In Node.js/io.js:
 var shape = require('shape-json');
 ```
 
-Browser:
-
-```html
-<script src="https://cdn.rawgit.com/ansteh/shape-json/master/dist/shape-json.min.js"></script>
-<script>
-  console.log(shape);
-</script>
-```
-
 ## Parse input by a scheme defined as json.
 ```js
 var input = [
@@ -32,7 +23,9 @@ var input = [
   {pid: 2, lastName: 'Dalton', firstName: 'John',  projectID: 7, projectName: 'project 7'},
   {pid: 2, lastName: 'Dalton', firstName: 'John',  projectID: 7, projectName: 'project 7'}
 ];
+```
 
+```js
 var scheme = {
   "$group[persons](pid)": {
     "id": "pid",
