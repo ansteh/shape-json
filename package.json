@@ -1,6 +1,6 @@
 {
   "name": "shape-json",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Module used to convert a flat json array into a nested json object with a predefined scheme",
   "main": "index.js",
   "scripts": {

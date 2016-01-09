@@ -28,10 +28,9 @@ var input = [
 Instead of producing a lot of duplicated code to accomplish such transformations. We declare a scheme as a json object. This is 'what you see':
 ```js
 var scheme = {
-  "$group[persons](pid)": {
+  "$group[contributors](pid)": {
     "id": "pid",
-    "last_name": "lastName",
-    "first_name": "firstName",
+    "name": "contributor",
     "$group[projects](projectID)": {
       "id": "projectID",
       "name": "projectName"
