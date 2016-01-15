@@ -1,7 +1,7 @@
 {
   "name": "shape-json",
-  "version": "0.0.19",
-  "description": "Module used to convert a flat json array into a nested json object with a predefined scheme",
+  "version": "0.0.20",
+  "description": "util module for json object transformations",
   "main": "index.js",
   "scripts": {
     "test": "node test/test",
@@ -16,9 +16,8 @@
     "scheme",
     "transform",
     "convert",
-    "nested",
-    "hierarchical",
-    "shape"
+    "shape",
+    "patch"
   ],
   "author": "Andre Stehle",
   "license": "MIT",

@@ -1,6 +1,3 @@
-The motivation behind this module is to reduce the amount of code for json object transformations. The concept implemented to achieve this, is: WYSIWYG.
-
-The idea is to define a json object that includes the transformation instructions, but at the same time reveals the same nesting structure as the output object.
 ## Installation
 
 Using npm:
@@ -8,7 +5,7 @@ Using npm:
 ```js
 npm install shape-json
 ```
-In Node.js/io.js:
+In Node.js:
 
 ```js
 var shape = require('shape-json');
@@ -25,7 +22,7 @@ var input = [
   {pid: 3, contributor: 'phated',  projectID: 4, projectName: 'gulp'},
 ]
 ```
-Instead of producing a lot of duplicated code to accomplish such transformations. We declare a scheme as a json object. This is 'what you see':
+Instead of producing a lot of duplicated code to accomplish such transformations. We declare a scheme as a json object:
 ```js
 var scheme = {
   "$group[contributors](pid)": {
@@ -39,7 +36,7 @@ var scheme = {
 };
 console.log(shape.parse(input, scheme));
 ```
-The result 'is what you get':
+This what you get:
 ```json
 {
   "contributors": [
