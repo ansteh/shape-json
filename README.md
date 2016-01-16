@@ -124,6 +124,51 @@ console.log(shape.parse(input, scheme));
 }
 ```
 
+## Extend parse method with own operation
+```js
+shape.define('growth', function(provider, scheme){
+  return provider.map(function(point){
+    point.rate *= 100;
+    return point;
+  });
+});
+
+var scheme = {
+  "$growth[growth]": {
+    "$mirror[rates]": {
+      "name": "name",
+      "percent": "rate"
+    }
+  }
+};
+
+var input = [
+  {
+    "name": "test1",
+    "rate": 0.1
+  },{
+    "name": "test2",
+    "rate": 0.2
+  }
+];
+
+var result = shape.parse(input, scheme);
+//result equals:
+{
+  growth: {
+    rates: [
+      {
+        "name": "test1",
+        "percent": 10
+      },{
+        "name": "test2",
+        "percent": 20
+      }
+    ]
+  }
+}
+```
+
 ## Create a scheme as object.
 ```js
 var scheme = shape.scheme()

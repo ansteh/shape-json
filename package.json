@@ -1,6 +1,6 @@
 {
   "name": "shape-json",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "util module for json object transformations",
   "main": "index.js",
   "scripts": {
