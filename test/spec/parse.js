@@ -33,7 +33,7 @@ let groupedProjects = _.map(_.groupBy(input, 'pid'), function(group){
     "id": person.pid,
     "last_name": person.lastName,
     "first_name": person.firstName,
-    "projects": _.uniq(_.map(group, function(project){
+    "projects": _.uniqBy(_.map(group, function(project){
       return {
         "id": project.projectID,
         "name": project.projectName
@@ -116,7 +116,7 @@ describe("scheme form", function() {
     };
 
     let result = {
-      persons: _.map(_.uniq(input, 'pid'), function(person){
+      persons: _.map(_.uniqBy(input, 'pid'), function(person){
         return {
           person: {
             "id": person.pid,

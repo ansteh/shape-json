@@ -15,5 +15,9 @@ module.exports = {
     {pid: 1, contributor: 'jdalton', projectID: 3, projectName: 'lodash-cli'},
     {pid: 2, contributor: 'contra',  projectID: 4, projectName: 'gulp'},
     {pid: 3, contributor: 'phated',  projectID: 4, projectName: 'gulp'},
+  ],
+  employees: [
+    {id: 1, name: 'john', prename: 'rambo'},
+    {id: 2}
   ]
 };
