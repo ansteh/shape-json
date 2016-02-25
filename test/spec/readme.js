@@ -110,4 +110,27 @@ describe("readme", function() {
     };
     expect(shape.parse(input, scheme)).toEqual(result);
   });
+
+  it("list projects example (nesting included) miss project key", function() {
+    let scheme = {
+      "$mirror(projectID)": {
+        "project": {
+          "id": "projectID",
+          "name": "projectName"
+        }
+      }
+    };
+
+    let result = _.map(_.groupBy(input, 'projectID'), function(group){
+      let person = group[0];
+      return {
+        "project": {
+          "id": person.projectID,
+          "name": person.projectName
+        }
+      };
+    });
+
+    expect(shape.parse(input, scheme)).toEqual(result);
+  });
 });

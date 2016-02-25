@@ -124,6 +124,47 @@ console.log(shape.parse(input, scheme));
 }
 ```
 
+The same example as above as Array:
+```js
+var scheme = {
+  "$mirror(projectID)": {
+    "project": {
+      "id": "projectID",
+      "name": "projectName"
+    }
+  }
+};
+console.log(shape.parse(input, scheme));
+```
+```json
+[
+  {
+    "project": {
+      "id": 1,
+      "name": "lodash"
+    }
+  },
+  {
+    "project": {
+      "id": 2,
+      "name": "docdown"
+    }
+  },
+  {
+    "project": {
+      "id": 3,
+      "name": "lodash-cli"
+    }
+  },
+  {
+    "project": {
+      "id": 4,
+      "name": "gulp"
+    }
+  }
+]
+```
+
 ## Extend parse method with own operation
 ```js
 shape.define('growth', function(provider, scheme){
