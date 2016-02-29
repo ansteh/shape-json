@@ -71,4 +71,31 @@ describe("operation specific:", function() {
 
     expect(shape.parse(input, scheme)).toEqual(result);
   });
+
+  //provided bug by mitomm
+  it("value equals 0", function() {
+    let scheme = {
+      "$group(id)": {
+        "id": "id",
+        "name": "name"
+      }
+    };
+
+    let input = [
+      {id:0, name: "bob_0"},
+      {id:1, name: "bob_1"},
+      {id:2, name: "bob_2"},
+      {id:3, name: "bob_3"}
+    ];
+
+    let result = _.map(_.groupBy(input, 'id'), function(group){
+      let person = group[0];
+      return {
+        "id": person.id,
+        "name": person.name,
+      }
+    });
+
+    expect(shape.parse(input, scheme)).toEqual(result);
+  });
 });
