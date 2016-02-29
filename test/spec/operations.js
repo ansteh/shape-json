@@ -98,4 +98,76 @@ describe("operation specific:", function() {
 
     expect(shape.parse(input, scheme)).toEqual(result);
   });
+
+  it("$group index not provided", function() {
+    let scheme = {
+      "$group(id)": {
+        "id": "id",
+        "name": "name"
+      }
+    };
+
+    let input = [
+      {id:0, name: "bob_0"},
+      {id:null, name: "bob_1"},
+      {id:2, name: "bob_2"},
+      {id:3, name: "bob_3"}
+    ];
+
+    let result = _.reduce(_.groupBy(input, 'id'), function(accu, group){
+      let person = group[0];
+      if(person.id){
+        accu.push({
+          "id": person.id,
+          "name": person.name,
+        });
+      }
+      return accu;
+    });
+
+    //console.log(shape.parse(input, scheme));
+    expect(shape.parse(input, scheme)).toEqual(result);
+  });
+
+  it("$group index not provided complex", function() {
+    let scheme = {
+      "$group[users](id)": {
+        "id": "id",
+        "$group[services](sid)": {
+          "$mirror[generalServCat](id)":{
+            "id": "id",
+            "name": "name"
+          },
+          "$mirror[items](id)":{
+            "name": "name"
+          },
+          "$mirror[employees](id)":{
+            "id": "id"
+          }
+        }
+      }
+    };
+
+    let input = [
+      {id:0, name: "bob_0", sid: 1},
+      {id:1, name: "bob_1", sid: 2},
+      {id:2, name: "bob_2", sid: null},
+      {id:3, name: "bob_3", sid: 4}
+    ];
+
+    let result = _.reduce(_.groupBy(input, 'id'), function(accu, group){
+      let person = group[0];
+      if(person.id){
+        accu.push({
+          "id": person.id,
+          "name": person.name,
+        });
+      }
+      return accu;
+    });
+
+    //console.log(shape.parse(input, scheme));
+    //console.log(shape.parse(input, scheme)['users'][0]['services']);
+    //expect(shape.parse(input, scheme)).toEqual(result);
+  });
 });
