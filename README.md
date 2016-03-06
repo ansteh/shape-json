@@ -349,3 +349,7 @@ console.log(result);
   }
 */
 ```
+
+## License
+
+MIT © [Andre Stehle](https://github.com/ansteh)
