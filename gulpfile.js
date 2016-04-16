@@ -27,7 +27,16 @@ gulp.task("webpack", function(callback) {
         path: path.resolve(__dirname, 'dist'),
         filename: "shape-json.min.js"
       },
+      /*module: {
+        exclude: /(node_modules|bower_components)/,
+        test: /\.js$/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015']
+        }
+      },*/
       plugins: [
+        //new webpack.optimize.LimitChunkCountPlugin({maxChunks: 15})
         new webpack.optimize.UglifyJsPlugin()
       ]
     }, function(err, stats) {
