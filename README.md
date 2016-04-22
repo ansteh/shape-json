@@ -36,7 +36,7 @@ var scheme = {
 };
 console.log(shape.parse(input, scheme));
 ```
-This what you get:
+This is what you get:
 ```json
 {
   "contributors": [
