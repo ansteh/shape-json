@@ -1,6 +1,6 @@
 {
   "name": "shape-json",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "util module for json object transformations",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,9 @@
     "transform",
     "convert",
     "shape",
-    "patch"
+    "patch",
+    "nested json",
+    "nesting"
   ],
   "author": "Andre Stehle",
   "license": "MIT",

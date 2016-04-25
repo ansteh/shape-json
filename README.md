@@ -12,7 +12,7 @@ var shape = require('shape-json');
 ```
 
 ## Parse input by a scheme defined as json.
-Consider you want to transform the below flat json object, into a nested json object we used to from MEAN stack.
+Consider you want to transform the below json object, into a nested json object we used to from MEAN stack.
 ```js
 var input = [
   {pid: 1, contributor: 'jdalton', projectID: 1, projectName: 'lodash'},
@@ -81,6 +81,32 @@ This is what you get:
   ]
 }
 ```
+
+#passing nested objects as input
+```js
+let scheme = {
+  "$mirror(id)": {
+    "name": "event.name"
+  }
+};
+
+let nestedInput = [{
+  id: 1,
+  event: {
+    name: 'lookup',
+  }
+},{
+  id: 2,
+  event: {
+    name: 'add',
+  }
+}];
+console.log(shape.parse(nestedInput, scheme));
+```
+```json
+[ { "name": "lookup" }, { "name": "add" } ]
+```
+
 Another example:
 ```js
 var scheme = {
