@@ -11,7 +11,7 @@ In Node.js:
 var shape = require('shape-json');
 ```
 
-## Parse input by a scheme defined as json.
+## Parse input by a scheme defined as json
 Consider you want to transform the below json object, into a nested json object we used to from MEAN stack.
 ```js
 var input = [
@@ -82,7 +82,7 @@ This is what you get:
 }
 ```
 
-#passing nested objects as input
+## Parsing nested json objects as input
 ```js
 let scheme = {
   "$mirror(id)": {
