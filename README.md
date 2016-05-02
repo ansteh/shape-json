@@ -1,3 +1,5 @@
+[![Build Status](https://api.travis-ci.org/ansteh/shape-json.svg?branch=master)](https://travis-ci.org/ansteh/shape-json)
+
 ## Installation
 
 Using npm:
