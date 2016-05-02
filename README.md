@@ -376,6 +376,11 @@ console.log(result);
 */
 ```
 
+## Related
+
+- [shape-array](https://github.com/ansteh/shape-array) - Convert array to json object
+- [difference-json](https://github.com/ansteh/difference-json) - Prompt the diffrence of two json objects
+
 ## License
 
 MIT © [Andre Stehle](https://github.com/ansteh)
