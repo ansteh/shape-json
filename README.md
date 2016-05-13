@@ -197,7 +197,7 @@ console.log(shape.parse(input, scheme));
 ```js
 var simpleAssignScheme = {
   "id": "pid",
-  "$set[active]": true, // true in all objects
+  "$set[active]": true // true in all objects
 };
 console.log(shape.parse(input, simpleAssignScheme));
 ```
