@@ -193,7 +193,7 @@ console.log(shape.parse(input, scheme));
 ]
 ```
 
-## assign default values from scheme
+## Assign default values by scheme
 ```js
 var simpleAssignScheme = {
   "id": "pid",
