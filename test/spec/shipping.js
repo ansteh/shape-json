@@ -3,7 +3,7 @@ var shape = require('../../index.js');
 
 describe("shipped functions:", function() {
   it("core is shipped", function() {
-    let keys = ['groupBy', 'indexBy', 'mirror', 'chain', 'scheme', 'parse', 'define'];
+    let keys = ['groupBy', 'indexBy', 'mirror', 'set', 'chain', 'scheme', 'parse', 'define'];
     expect(Object.keys(shape)).toEqual(keys);
   });
 

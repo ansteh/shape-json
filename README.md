@@ -193,6 +193,18 @@ console.log(shape.parse(input, scheme));
 ]
 ```
 
+## assign default values from scheme
+```js
+var simpleAssignScheme = {
+  "id": "pid",
+  "$set[active]": true, // true in all objects
+};
+console.log(shape.parse(input, simpleAssignScheme));
+```
+```json
+{ "id": 1, "active": true }
+```
+
 ## Extend parse method with own operation
 ```js
 shape.define('growth', function(provider, scheme){
