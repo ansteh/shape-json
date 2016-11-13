@@ -207,11 +207,15 @@ console.log(shape.parse(input, simpleAssignScheme));
 
 ## Extend parse method with own operation
 ```js
-shape.define('growth', function(provider, scheme){
-  return provider.map(function(point){
+shape.define('growth', function(operation, provider, scheme, helpers){
+  var parse = helpers.parse;
+
+  var modifiedProvider = provider.map(function(point){
     point.rate *= 100;
     return point;
   });
+
+  return parse(modifiedProvider, scheme);
 });
 
 var scheme = {
