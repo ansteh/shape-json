@@ -1,6 +1,6 @@
 {
   "name": "shape-json",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "util module for json object transformations",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
     "url": "https://github.com/ansteh/shape-json/issues"
   },
   "dependencies": {
-    "lodash": "^4.17.2"
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
