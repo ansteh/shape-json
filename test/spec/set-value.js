@@ -71,4 +71,22 @@ describe("set value", function() {
 
     expect(shape.parse(input, scheme)).toEqual(result);
   });
+
+  it("all parsed schemes are perserved", function() {
+    let scheme = {
+      "name": "name",
+      "$set": {
+        "phrases": ["text1", "text2", "some more text"]
+      },
+    };
+
+    let input = { name: 'jmdjr' };
+
+    let result = {
+      name: 'jmdjr',
+      phrases: [ 'text1', 'text2', 'some more text' ]
+    };
+
+    expect(shape.parse(input, scheme)).toEqual(result);
+  });
 });
